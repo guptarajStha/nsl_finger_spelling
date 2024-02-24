@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import guptraj from "../images/guptaraj.png";
 import nishan from "../images/nishan.png";
 import prasanga from "../images/prasanga.png";
-import prajita from "../images/prajitaa.png";
+import prajita from "../images/prajita.png";
 import pukarsir from "../images/pukarsirr.png";
 
 import "aos/dist/aos.css";
@@ -105,7 +105,7 @@ const ContactUs = () => {
                   <FaFacebook className="text-white" size={20} />
                 </a>
                 <a
-                  href=""
+                  href="https://np.linkedin.com/in/nishan-thing-a90436280"
                   className="hover:scale-125 transition duration-300 w-[40px] h-[40px] bg-[#181F44] rounded-full justify-center items-center flex cursor-pointer"
                 >
                   <CiLinkedin className="text-white" size={20} />
@@ -139,7 +139,7 @@ const ContactUs = () => {
                   <FaFacebook className="text-white" size={20} />
                 </a>
                 <a
-                  href=""
+                  href="https://np.linkedin.com/in/prajita-dhakal-6ab412227"
                   className="hover:scale-125 transition duration-300 w-[40px] h-[40px] bg-[#181F44] rounded-full justify-center items-center flex cursor-pointer"
                 >
                   <CiLinkedin className="text-white" size={20} />

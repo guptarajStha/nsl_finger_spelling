@@ -17,6 +17,8 @@ import base64
 import cv2
 import numpy as np
 
+from io import BytesIO
+from gtts import gTTS
 import mediapipe as mp
 # from keras.models import load_model 
 
@@ -27,11 +29,28 @@ hands = mp_hands.Hands(static_image_mode = True, min_detection_confidence=0.3, m
 mp_drawing = mp.solutions.drawing_utils 
 mp_drawing_styles = mp.solutions.drawing_styles
 
+class text_to_speech(APIView):
+    def post(self,request):
+        text = request.data.get('text')
+        mp3_fp =BytesIO()
+        tts = gTTS(text,lang='ne')
+        tts.write_to_fp(mp3_fp)
+        mp3_fp.seek(0)
+        mp3_bytes = mp3_fp.read()
+        mp3_base64 = base64.b64encode(mp3_bytes).decode('utf-8')
+        return JsonResponse({'mp3_base64': mp3_base64}, content_type='application/json')
+
+
 class wordFormation(APIView):
     def post(self,request):
-        letter_arr = request.data
+        letter_arry = request.data
+        print(letter_arry)
+        letter_arr = [item for item in letter_arry if item is not None]
         print(letter_arr)
         word = letterJoining.joinLetter(letter_arr)
+        # letter_arr = request.data
+        # print(letter_arr)
+        # word = letterJoining.joinLetter(letter_arr)
         print(word)
         return JsonResponse({'word':str(word)})
         # return JsonResponse({'word':str(letter_arr)})

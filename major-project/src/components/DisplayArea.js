@@ -56,8 +56,10 @@ const DisplayArea = (props) => {
           if(testType==1 & liveTestType == 0){
             if (acc>96){
               // setAccuracy(acc)
-              if(data.letter!='blank'){
-                setTempLetter(data.letter)
+              if(data.letter){
+                if(data.letter!='blank'){
+                  setTempLetter(data.letter)
+                }
               }
             }  
             
@@ -91,7 +93,7 @@ const DisplayArea = (props) => {
           if (wait > 0) {
             setWait((prevCount) => prevCount - 1);
           } else {
-            setGiveSign(10);
+            setGiveSign(5);
             setIsWaiting(!isWaiting);
           }
         }

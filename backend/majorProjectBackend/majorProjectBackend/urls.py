@@ -13,5 +13,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('predict-letter/', views.predictLetter.as_view()),
     path('predict-letter-only/',views.predictLetterOnly.as_view()),
-    path('word-formation/',views.wordFormation.as_view())
+    path('word-formation/',views.wordFormation.as_view()),
+     path('text-to-speech/',views.text_to_speech.as_view()),
 ]
